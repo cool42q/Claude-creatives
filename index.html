@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Creatives | Claudius Benard</title>
+    <meta name="description" content="Portfolio of Claudius Benard - Tech Enthusiast, Creative Designer, and Footballer based in Kenya.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS VARIABLES (Derived from Logo) --- */
+        :root {
+            --bg-color: #f8f9fa; /* Off-white from logo background */
+            --surface-color: #ffffff;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --primary-green: #006747; /* From text */
+            --accent-teal: #008b8b; /* From pencil/arrow */
+            --accent-blue: #1e73be;
+            --accent-orange: #f29f05;
+            --border-color: #e0e0e0;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --transition: all 0.3s ease;
+        }
+
+        /* --- BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 160px 2rem 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-teal);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+            border: 5px solid var(--surface-color);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-orange));
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        /* --- SECTION STYLES --- */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* --- ABOUT / INFO SECTION --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .info-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+        }
+
+        .info-list i {
+            color: var(--accent-teal);
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--surface-color);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-top-color: var(--accent-orange);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-color);
+            color: var(--text-muted);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* --- ATHLETICS & INTERESTS SECTION --- */
+        .dynamic-bg {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-teal));
+            color: white;
+            border-radius: 30px;
+            margin: 0 2rem;
+            max-width: 1200px;
+            padding: 5rem 3rem;
+        }
+
+        .dynamic-bg .section-header h2,
+        .dynamic-bg .section-header p {
+            color: white;
+        }
+
+        .dual-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .dynamic-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-orange);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .dynamic-card ul li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .dynamic-card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .footer-logo span {
+            color: var(--accent-teal);
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-socials a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-socials a:hover {
+            color: var(--accent-orange);
+            transform: translateY(-3px);
+        }
+
+        footer p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            .hero, .about-grid, .dual-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero {
+                padding-top: 120px;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin: 0 auto 2rem;
+            }
+
+            .btn-group {
+                justify-content: center;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3rem;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .dynamic-bg {
+                margin: 0 1rem;
+                padding: 3rem 1.5rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <!-- Ensure logo.png is in the same folder -->
+                <img src="logo.png" alt="Claude Creatives Logo">
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Expertise</a></li>
+                <li><a href="#athletics">Athletics & Interests</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Claudius Benard</h1>
+            <h2>Tech Enthusiast. Designer. Athlete.</h2>
+            <p>A 20-year-old university student based in Kenya, blending the worlds of cybersecurity, creative digital media, and the football pitch.</p>
+            <div class="btn-group">
+                <a href="#skills" class="btn btn-primary">View My Expertise <i class="fas fa-arrow-right"></i></a>
+                <a href="#athletics" class="btn btn-outline">My Passions</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <!-- Ensure your photo is named profile.jpg and is in the same folder -->
+            <img src="profile.jpg" alt="Claudius Benard">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+            <p>A versatile mix of technical, creative, and athletic talents.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Driven by Curiosity & Creativity</h3>
+                <p>I am a multi-disciplinary creator and problem solver. Whether I'm securing a network as a white hat hacker, designing graphics for educational programs, or orchestrating plays on the football field as an attacking midfielder, I bring passion and precision to everything I do.</p>
+                <p>As the founder of <strong>Claude Creatives</strong>, I aim to merge technology with digital media to create impactful solutions.</p>
+            </div>
+            <div class="info-list">
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Based in Kisumu/Kenya</li>
+                    <li><i class="fas fa-graduation-cap"></i> University Student (20 Years Old)</li>
+                    <li><i class="fas fa-shield-alt"></i> Cisco Certified Networking Associate</li>
+                    <li><i class="fas fa-futbol"></i> Attacking Midfielder (#10 / #11)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2>My Expertise</h2>
+            <p>Where technical precision meets creative vision.</p>
+        </div>
+        <div class="skills-grid">
+            <!-- Tech & Cyber -->
+            <div class="skill-card">
+                <i class="fas fa-terminal skill-icon"></i>
+                <h3>Tech & Cybersecurity</h3>
+                <p>Enthusiastic white hat hacker dedicated to ethical security and robust system architecture.</p>
+                <div class="skill-tags">
+                    <span class="tag">Ethical Hacking</span>
+                    <span class="tag">System Admin</span>
+                    <span class="tag">Cisco Networking</span>
+                    <span class="tag">Web Dev</span>
+                </div>
+            </div>
+
+            <!-- Creative Media -->
+            <div class="skill-card">
+                <i class="fas fa-palette skill-icon"></i>
+                <h3>Creative & Digital Media</h3>
+                <p>Crafting visual and auditory experiences, from graphics to beats, and designing educational resources.</p>
+                <div class="skill-tags">
+                    <span class="tag">Graphic Design</span>
+                    <span class="tag">Audio Production</span>
+                    <span class="tag">Content Creation</span>
+                    <span class="tag">CBC Curriculum Design</span>
+                </div>
+            </div>
+
+            <!-- Trading -->
+            <div class="skill-card">
+                <i class="fas fa-chart-line skill-icon"></i>
+                <h3>Financial Markets</h3>
+                <p>Analyzing market trends and executing strategies in the fast-paced environment of synthetic indices.</p>
+                <div class="skill-tags">
+                    <span class="tag">Deriv Trading</span>
+                    <span class="tag">Synthetic Indices</span>
+                    <span class="tag">Risk Management</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Athletics & Interests -->
+    <section id="athletics" class="dynamic-bg">
+        <div class="section-header">
+            <h2>Beyond the Screen</h2>
+            <p>Life on the pitch and in the wild.</p>
+        </div>
+        <div class="dual-grid">
+            <div class="dynamic-card">
+                <h3><i class="fas fa-futbol"></i> Athletics</h3>
+                <p>Football is a huge part of my life. As an attacking midfielder wearing the #10 or #11 jersey, I thrive on creating opportunities and leading the attack. I am actively involved with local clubs, including:</p>
+                <ul>
+                    <li>Tsunami Soccer Club</li>
+                    <li>Kisian Rangers F.C.</li>
+                    <li>Miranga Kusa FC</li>
+                </ul>
+            </div>
+            <div class="dynamic-card">
+                <h3><i class="fas fa-camera"></i> Interests</h3>
+                <p>When I'm not coding, designing, or playing football, you can find me engaging with the things that inspire me:</p>
+                <ul>
+                    <li>Nature photography & walks</li>
+                    <li>Listening to and producing Hip-Hop/Rap music</li>
+                    <li>Exploring the latest tech trends</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">CLAUDE <span>CREATIVES</span></div>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Claudius Benard. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Change icon based on state
+            const icon = hamburger.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
+            });
+        });
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
